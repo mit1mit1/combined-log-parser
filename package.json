@@ -1,6 +1,10 @@
 {
   "name": "parse-http-logs",
   "main": "index.js",
+  "engines" : { 
+    "npm" : ">=8.0.0",
+    "node" : ">=16.0.0"
+  },
   "packageManager": "yarn@3.2.1",
   "dependencies": {
     "minimist-lite": "^2.2.1"
@@ -15,6 +19,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "build": "tsc",
-    "run:test": "node ./dist/main.js --filename=src/mocks/log-example.txt"
+    "start:test": "yarn build && node ./dist/main.js --filename=src/mocks/log-example.txt",
+    "start": "yarn build && node ./dist/main.js"
   }
 }

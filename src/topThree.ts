@@ -1,29 +1,23 @@
 const topThreeValues = (object: {[key: string]: number}) => {
     const result = {
-        first: {key: '', value: Number.NEGATIVE_INFINITY},
-        second: {key: '', value: Number.NEGATIVE_INFINITY},
-        third: {key: '', value: Number.NEGATIVE_INFINITY},
+        topKeyValuePair: {keyString: '', amount: Number.NEGATIVE_INFINITY},
+        secondKeyValuePair: {keyString: '', amount: Number.NEGATIVE_INFINITY},
+        thirdKeyValuePair: {keyString: '', amount: Number.NEGATIVE_INFINITY},
     }
     Object.entries(object).forEach(([key, value]) => {
-        if (value > result.first.value) {
-            result.third.key = result.second.key;
-            result.third.value = result.third.value;
-            result.second.key = result.first.key;
-            result.second.value = result.first.value;
-            result.first.key = key;
-            result.first.value = value;
-        } else if (value > result.second.value) {
-            result.third.value = result.second.value;
-            result.third.key = result.second.key;
-            result.second.value = value;
-            result.second.key = key;
-        } else if (value > result.third.value) {
-            result.third.value = value;
-            result.third.key = key;
+        if (value > result.topKeyValuePair.amount) {
+            result.thirdKeyValuePair = {...result.secondKeyValuePair};
+            result.secondKeyValuePair = {...result.topKeyValuePair};
+            result.topKeyValuePair = {keyString: key, amount: value};
+        } else if (value > result.secondKeyValuePair.amount) {
+            result.thirdKeyValuePair = {...result.secondKeyValuePair};
+            result.secondKeyValuePair = {keyString: key, amount: value};
+        } else if (value > result.thirdKeyValuePair.amount) {
+            result.thirdKeyValuePair = {keyString: key, amount: value};
         }
     });
-    Object.entries(result).forEach(([key, value]) => {
-        if (value.value == Number.NEGATIVE_INFINITY && value.key == '') {
+    Object.entries(result).forEach(([key, pair]) => {
+        if (pair.amount == Number.NEGATIVE_INFINITY && pair.keyString == '') {
             delete result[key];
         }
     })
