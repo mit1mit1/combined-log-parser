@@ -1,11 +1,11 @@
-import interpretFile from "./interpretFile";
+import getFileData from "./getFileData";
 import minimistLite from 'minimist-lite';
-import topThreeValues from "./topThree";
+import getTopNKeyValuePairs from "./getTopNKeyValuePairs";
 
 const filename = minimistLite(process.argv.slice(2))['filename'];
 
-interpretFile(filename).then((result) => {
-    console.log('number of unique ip addresses: ', Object.keys(result.ipAddressCounts).length)
-    console.log('Top three ip addresses: ', topThreeValues(result.ipAddressCounts));
-    console.log('Top three urls: ', topThreeValues(result.uriCounts));
+getFileData(filename).then((result) => {
+    console.log('Number of unique ip addresses: ', Object.keys(result.ipAddressCounts).length)
+    console.log('Top three ip addresses: ', getTopNKeyValuePairs(result.ipAddressCounts, 3));
+    console.log('Top three urls: ', getTopNKeyValuePairs(result.uriCounts, 3));
 });

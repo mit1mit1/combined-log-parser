@@ -19,7 +19,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "build": "tsc",
-    "start:test": "yarn build && node ./dist/main.js --filename=src/mocks/log-example.txt",
+    "start:test": "yarn build && node ./dist/main.js --filename=src/mocks/one-valid-line.log",
     "start": "yarn build && node ./dist/main.js"
   }
 }
