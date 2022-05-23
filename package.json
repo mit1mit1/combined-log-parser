@@ -1,9 +1,9 @@
 {
   "name": "parse-http-logs",
   "main": "index.js",
-  "engines" : { 
-    "npm" : ">=8.0.0",
-    "node" : ">=16.0.0"
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
   "packageManager": "yarn@3.2.1",
   "dependencies": {
@@ -19,7 +19,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "build": "tsc",
-    "start:test": "yarn build && node ./dist/main.js --filename=src/mocks/one-valid-line.log",
-    "start": "yarn build && node ./dist/main.js"
+    "readfile:test": "yarn build && node ./dist/main.js --filename=src/mocks/one-valid-line.log",
+    "readfile": "yarn build && node ./dist/main.js"
   }
 }
