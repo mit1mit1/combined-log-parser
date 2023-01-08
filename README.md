@@ -1,6 +1,6 @@
 # Parse HTTP logs
 
-Parse HTTP logs using nodejs. While this repo is functional, it is more or less an exercise in clean coding and TDD. In practice, we'd probably want a more efficient tool than a command-line run nodejs file.
+Parse HTTP logs using nodejs. While this repo is functional, it is more or less an exercise in clean coding and TDD. In practice, we'd probably want a more efficient tool than a command line nodejs script.
 
 ## Requires
 
